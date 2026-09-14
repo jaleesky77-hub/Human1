@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COLOR LEADERSHIP LAB — 16컬러 코드로 완성하는 리더십 &amp; 면접력</title>
+<meta name="description" content="16가지 컬러 코드로 나를 진단하고, 리더십과 이미지, 실전 면접력까지 완성하는 4주 클래스. 1주차 무료.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#191A20;
+    --ink-soft:#24262E;
+    --paper:#FAF8F3;
+    --paper-dim:#F1EEE6;
+    --text-dark:#1B1C22;
+    --text-light:#F6F4EE;
+    --text-muted:#8B8A82;
+    --text-muted-dark:#6E6D66;
+    --line:#33343C;
+    --line-light:#E4E0D4;
+    --free:#2E7D52;
+    --free-bg:#E7F3EB;
+    --radius:2px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text-dark);
+    font-family:'Noto Sans KR', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  ::selection{background:#2C2E38;color:#fff;}
+  :focus-visible{outline:2px solid #2C2E38;outline-offset:3px;}
+
+  /* ---------- 스펙트럼 (16 컬러 코드) ---------- */
+  .swatch{width:100%;height:100%;border-radius:1px;}
+
+  /* ---------- 상단 네비 ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,248,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-light);
+  }
+  .nav{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-family:'Noto Serif KR',serif;font-weight:700;font-size:1.05rem;letter-spacing:0.02em;}
+  .brand span{color:var(--text-muted-dark);font-weight:500;font-size:0.85em;}
+  .nav-cta{
+    background:var(--ink);color:var(--text-light);
+    padding:10px 20px;font-size:0.88rem;font-weight:500;
+    border-radius:var(--radius);
+  }
+  .nav-cta:hover{background:#000;}
+
+  /* ---------- 히어로 ---------- */
+  .hero{
+    background:var(--ink);color:var(--text-light);
+    padding:96px 0 84px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative;z-index:2;}
+  .eyebrow{
+    font-size:0.92rem;color:#C9C6B8;margin-bottom:22px;
+    max-width:520px;line-height:1.6;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.3vw, 3.35rem);
+    line-height:1.28;
+    max-width:760px;
+    color:var(--text-light);
+  }
+  .hero-sub{
+    margin-top:26px;max-width:560px;
+    color:#CFCDC2;font-size:1.02rem;line-height:1.85;
+  }
+  .hero-actions{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 26px;font-size:0.95rem;font-weight:500;
+    border-radius:var(--radius);border:1px solid transparent;cursor:pointer;
+    transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-primary{background:var(--text-light);color:var(--ink);}
+  .btn-primary:hover{background:#fff;}
+  .btn-ghost{border-color:#4B4C54;color:var(--text-light);}
+  .btn-ghost:hover{border-color:#8B8A82;}
+
+  .spectrum-row{
+    margin-top:64px;display:grid;grid-template-columns:repeat(16,1fr);
+    gap:4px;max-width:720px;height:46px;
+  }
+  .spectrum-caption{
+    margin-top:12px;font-size:0.8rem;color:#9C9A8E;
+  }
+
+  /* ---------- 섹션 공통 ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .kicker{
+    font-size:0.85rem;color:var(--text-muted-dark);margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.4;}
+  .section-head p{margin-top:16px;color:var(--text-muted-dark);font-size:1rem;line-height:1.8;}
+
+  /* ---------- 프로그램 소개 3열 ---------- */
+  .pillars{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line-light);border:1px solid var(--line-light);
+  }
+  .pillar{background:var(--paper);padding:34px 30px;}
+  .pillar .chip{width:30px;height:8px;margin-bottom:20px;}
+  .pillar h3{font-size:1.08rem;margin-bottom:12px;}
+  .pillar p{color:var(--text-muted-dark);font-size:0.93rem;line-height:1.75;}
+
+  /* ---------- 커리큘럼 ---------- */
+  .curriculum-list{border-top:1px solid var(--line-light);}
+  .week{
+    display:grid;grid-template-columns:110px 1fr auto;gap:28px;
+    padding:32px 0;border-bottom:1px solid var(--line-light);
+    align-items:start;
+  }
+  .week-num{
+    font-family:'Noto Serif KR',serif;font-size:1.9rem;color:var(--text-muted);
+  }
+  .week-body h3{font-size:1.12rem;margin-bottom:10px;}
+  .week-body p{color:var(--text-muted-dark);font-size:0.93rem;line-height:1.8;max-width:540px;}
+  .week-tags{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{
+    font-size:0.76rem;padding:4px 10px;border:1px solid var(--line-light);
+    color:var(--text-muted-dark);border-radius:20px;
+  }
+  .week-price{text-align:right;white-space:nowrap;padding-top:4px;}
+  .price-free{color:var(--free);font-weight:700;font-size:0.98rem;}
+  .price-free-tag{
+    display:inline-block;margin-top:6px;font-size:0.74rem;background:var(--free-bg);
+    color:var(--free);padding:3px 9px;border-radius:20px;font-weight:500;
+  }
+  .price-normal{font-weight:700;font-size:0.98rem;}
+
+  /* ---------- 강사 소개 ---------- */
+  .instructor{background:var(--paper-dim);}
+  .instructor-grid{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:start;
+  }
+  .instructor-mark{
+    width:100%;aspect-ratio:4/5;background:var(--ink);
+    display:flex;align-items:flex-end;padding:26px;
+  }
+  .instructor-mark-inner{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:4px;width:100%;
+  }
+  .instructor-mark-inner div{aspect-ratio:1;}
+  .instructor h3{font-size:1.5rem;margin-bottom:6px;}
+  .instructor .role{color:var(--text-muted-dark);font-size:0.92rem;margin-bottom:26px;}
+  .instructor .bio{color:var(--text-dark);font-size:0.97rem;line-height:1.9;max-width:520px;}
+  .cred-list{margin-top:30px;border-top:1px solid var(--line-light);}
+  .cred-list li{
+    list-style:none;display:flex;gap:18px;padding:14px 0;
+    border-bottom:1px solid var(--line-light);font-size:0.9rem;
+  }
+  .cred-list li span:first-child{
+    color:var(--text-muted-dark);min-width:96px;flex-shrink:0;font-size:0.85rem;
+  }
+
+  /* ---------- 신청 폼 ---------- */
+  .apply{background:var(--ink);color:var(--text-light);}
+  .apply .section-head p{color:#B9B7AC;}
+  .apply-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;}
+  .apply-note{font-size:0.92rem;color:#C9C6B8;line-height:1.9;}
+  .apply-note strong{color:var(--text-light);}
+  .apply-note ul{margin:18px 0 0;padding-left:18px;}
+  .apply-note li{margin-bottom:8px;}
+
+  form.apply-form{display:flex;flex-direction:column;gap:16px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-size:0.86rem;color:#CFCDC2;}
+  .field input,.field select,.field textarea{
+    background:#232430;border:1px solid #3C3D46;color:var(--text-light);
+    padding:13px 14px;font-size:0.95rem;border-radius:var(--radius);
+    font-family:inherit;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#75746C;}
+  .field textarea{resize:vertical;min-height:80px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .checkbox-row{display:flex;gap:10px;align-items:flex-start;font-size:0.83rem;color:#B9B7AC;margin-top:4px;}
+  .checkbox-row input{margin-top:3px;}
+  .submit-btn{
+    margin-top:8px;background:var(--text-light);color:var(--ink);
+    padding:15px;font-size:0.98rem;font-weight:700;border:none;border-radius:var(--radius);
+    cursor:pointer;
+  }
+  .submit-btn:hover{background:#fff;}
+  .submit-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .form-msg{font-size:0.88rem;margin-top:2px;min-height:1.4em;}
+  .form-msg.ok{color:#8FD3A8;}
+  .form-msg.err{color:#E29999;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--line-light);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:22px 0;font-size:0.98rem;font-weight:500;color:var(--text-dark);
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+    font-family:inherit;
+  }
+  .faq-q .ind{color:var(--text-muted);font-size:1.2rem;flex-shrink:0;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .25s ease;
+  }
+  .faq-a p{padding-bottom:22px;color:var(--text-muted-dark);font-size:0.92rem;line-height:1.85;max-width:620px;}
+  .faq-item.open .faq-a{max-height:220px;}
+
+  /* ---------- 관리자(신청자 확인) ---------- */
+  .admin{background:var(--paper-dim);border-top:1px solid var(--line-light);}
+  .admin-toggle{
+    font-size:0.85rem;color:var(--text-muted-dark);background:none;border:1px solid var(--line-light);
+    padding:9px 16px;border-radius:20px;cursor:pointer;font-family:inherit;
+  }
+  .admin-panel{margin-top:26px;display:none;}
+  .admin-panel.show{display:block;}
+  .admin-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+  .admin-bar .count{font-size:0.88rem;color:var(--text-muted-dark);}
+  .admin-actions{display:flex;gap:8px;}
+  .admin-btn{
+    font-size:0.82rem;padding:8px 14px;border:1px solid var(--line-light);background:var(--paper);
+    border-radius:var(--radius);cursor:pointer;font-family:inherit;
+  }
+  table.admin-table{width:100%;border-collapse:collapse;background:var(--paper);font-size:0.85rem;}
+  table.admin-table th,table.admin-table td{
+    text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-light);
+    max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  table.admin-table th{color:var(--text-muted-dark);font-weight:500;font-size:0.78rem;}
+  .admin-empty{color:var(--text-muted-dark);font-size:0.88rem;padding:20px 0;}
+
+  /* ---------- 푸터 ---------- */
+  footer{background:var(--ink);color:#8B8A82;padding:40px 0;font-size:0.82rem;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* ---------- 반응형 ---------- */
+  @media (max-width:860px){
+    .pillars{grid-template-columns:1fr;}
+    .instructor-grid{grid-template-columns:1fr;gap:40px;}
+    .instructor-mark{aspect-ratio:16/9;}
+    .apply-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .week{grid-template-columns:1fr;gap:10px;}
+    .week-price{text-align:left;}
+    table.admin-table{display:block;overflow-x:auto;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="brand">COLOR LEADERSHIP LAB <span>컬러 리더십 랩</span></div>
+    <a href="#apply" class="nav-cta">신청하기</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">16컬러 코드 리더십 코칭 · 퍼스널 이미지브랜딩 · 현직 면접위원의 면접 컨설팅</p>
+    <h1>나를 이루는 컬러를 알면,<br>리더십과 이미지, 말의 힘이 달라집니다</h1>
+    <p class="hero-sub">
+      16가지 컬러 코드로 나의 성향과 강점을 진단하고, 그것을 리더십과 이미지, 실전 면접 답변으로 연결하는 4주 클래스입니다.
+      1주차는 무료로 열려 있어, 나의 컬러 코드를 먼저 확인해볼 수 있습니다.
+    </p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn btn-primary">1주차 무료로 신청하기</a>
+      <a href="#curriculum" class="btn btn-ghost">4주 커리큘럼 보기</a>
+    </div>
+
+    <div class="spectrum-row" id="spectrumRow" aria-hidden="true"></div>
+    <p class="spectrum-caption">16가지 컬러 리더십 코드 — 클래스 전체에서 사용하는 진단 체계입니다</p>
+  </div>
+</section>
+
+<section class="pillars-section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">WHY THIS CLASS</p>
+      <h2>세 가지 관점을 하나로 연결합니다</h2>
+      <p>컬러 진단은 재미로 끝나기 쉽습니다. 이 클래스는 진단 결과를 실제 리더십 언어, 이미지 연출, 면접 답변으로 바로 옮기는 데 집중합니다.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="chip" style="background:#E4572E"></div>
+        <h3>컬러 리더십 코칭</h3>
+        <p>16가지 컬러 코드로 나와 구성원의 성향을 읽고, 상황별 커뮤니케이션과 팀 운영 전략을 설계합니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="chip" style="background:#219EBC"></div>
+        <h3>퍼스널 이미지브랜딩</h3>
+        <p>나의 컬러를 기반으로 표정, 태도, 톤앤매너를 정리해 신뢰감 있는 리더의 이미지를 완성합니다.</p>
+      </div>
+      <div class="pillar">
+        <div class="chip" style="background:#6247AA"></div>
+        <h3>현직 면접위원의 컨설팅</h3>
+        <p>공기업 면접위원으로 실제 평가를 해온 시각에서, 자기소개서부터 실전 답변 구조까지 짚어드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curriculum">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">CURRICULUM</p>
+      <h2>4주, 진단에서 실전까지</h2>
+      <p>1주차는 무료로 공개되어 있습니다. 나에게 맞는 클래스인지 먼저 확인한 뒤, 2~4주차를 이어서 신청하실 수 있습니다.</p>
+    </div>
+
+    <div class="curriculum-list">
+      <div class="week">
+        <div class="week-num">01</div>
+        <div class="week-body">
+          <h3>나의 컬러 코드 진단</h3>
+          <p>16가지 컬러 리더십 코드의 구조를 이해하고, 자가 진단을 통해 나의 코드와 강점, 소통 방식을 확인합니다.</p>
+          <div class="week-tags"><span class="tag">자가 진단</span><span class="tag">컬러 코드 기초</span></div>
+        </div>
+        <div class="week-price">
+          <div class="price-free">무료</div>
+          <div class="price-free-tag">1주차 공개</div>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-num">02</div>
+        <div class="week-body">
+          <h3>퍼스널 이미지브랜딩</h3>
+          <p>진단된 컬러를 바탕으로 표정, 자세, 톤앤매너, 스타일링의 기준을 세우고 나만의 리더 이미지를 설계합니다.</p>
+          <div class="week-tags"><span class="tag">이미지메이킹</span><span class="tag">실습 포함</span></div>
+        </div>
+        <div class="week-price"><div class="price-normal">유료</div></div>
+      </div>
+
+      <div class="week">
+        <div class="week-num">03</div>
+        <div class="week-body">
+          <h3>컬러 리더십 코칭</h3>
+          <p>컬러별 성향 차이를 조직과 팀 상황에 적용해, 갈등 상황별 대화법과 리더로서의 코칭 언어를 훈련합니다.</p>
+          <div class="week-tags"><span class="tag">리더십 코칭</span><span class="tag">사례 워크숍</span></div>
+        </div>
+        <div class="week-price"><div class="price-normal">유료</div></div>
+      </div>
+
+      <div class="week">
+        <div class="week-num">04</div>
+        <div class="week-body">
+          <h3>현직 면접위원의 면접 컨설팅</h3>
+          <p>공기업 면접위원 경력을 바탕으로 자기소개서 구성, 예상 질문 대응, 답변 구조까지 실전 관점에서 컨설팅합니다.</p>
+          <div class="week-tags"><span class="tag">면접 컨설팅</span><span class="tag">1:1 피드백</span></div>
+        </div>
+        <div class="week-price"><div class="price-normal">유료</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="instructor">
+  <div class="wrap">
+    <div class="instructor-grid">
+      <div class="instructor-mark">
+        <div class="instructor-mark-inner" id="instructorMark" aria-hidden="true"></div>
+      </div>
+      <div>
+        <p class="kicker">INSTRUCTOR</p>
+        <h3>기업·학교 특강 강사 / 공기업 면접위원</h3>
+        <p class="role">전 대한항공 국제여객부서 (약 20년) · 컬러 리더십 16코드 공저 집필 중</p>
+        <p class="bio">
+          오랜 시간 현장에서 사람을 마주하며 쌓은 경험을 바탕으로, 리더십·이미지메이킹·서비스 교육을 강의해왔습니다.
+          지금은 공기업 면접위원으로 실제 평가 현장에 서는 동시에, 16가지 컬러 코드를 활용한 컬러 리더십 이론을
+          책으로 정리하고 있습니다. 이 클래스는 그 관점을 그대로 담았습니다.
+        </p>
+        <ul class="cred-list">
+          <li><span>경력</span><span>대한항공 국제여객부서 약 20년, 기업·학교 특강 강사, 공기업 면접위원</span></li>
+          <li><span>자격</span><span>디자인씽킹 전문가 디플로마</span></li>
+          <li><span>자격</span><span>에니어그램 1급 전문강사</span></li>
+          <li><span>자격</span><span>이미지메이킹 1급 전문강사</span></li>
+          <li><span>자격</span><span>휴먼컬러 자격</span></li>
+          <li><span>자격</span><span>KAC 2급 코칭리더십자격 · SMAT 2급</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="apply-grid">
+      <div>
+        <p class="kicker">APPLY</p>
+        <h2 style="font-size:1.9rem;line-height:1.4;">신청서를 작성해 주세요</h2>
+        <p class="apply-note" style="margin-top:20px;">
+          <strong>1주차는 무료</strong>로 진행됩니다. 신청서를 제출하시면 안내 드리는 이메일로 접수 확인 메일이 함께 열립니다(메일 전송 버튼을 눌러 완료해 주세요).
+          <ul>
+            <li>1주차 무료 참여 후, 2~4주차는 별도 안내를 드립니다.</li>
+            <li>기업·학교 단체 특강 문의도 같은 폼으로 접수됩니다.</li>
+            <li>제출한 내용은 이 브라우저에도 임시 저장되어, 아래 관리자 화면에서 확인할 수 있습니다.</li>
+          </ul>
+        </p>
+      </div>
+
+      <form class="apply-form" id="applyForm" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">이름 *</label>
+            <input type="text" id="f-name" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">연락처 *</label>
+            <input type="tel" id="f-phone" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-email">이메일 *</label>
+          <input type="email" id="f-email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-org">소속(선택)</label>
+            <input type="text" id="f-org" name="org" placeholder="회사명 / 학교명">
+          </div>
+          <div class="field">
+            <label for="f-track">관심 분야 *</label>
+            <select id="f-track" name="track" required>
+              <option value="" disabled selected>선택해 주세요</option>
+              <option value="1주차 무료 체험">1주차 무료 체험만 먼저 듣고 싶어요</option>
+              <option value="4주 전체 과정">4주 전체 과정을 신청할게요</option>
+              <option value="기업/학교 단체 특강">기업·학교 단체 특강을 문의할게요</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">남기실 말씀(선택)</label>
+          <textarea id="f-msg" name="message" placeholder="궁금한 점이나 희망 일정 등을 자유롭게 남겨주세요"></textarea>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="f-agree" name="agree" required>
+          <span>이름, 연락처, 이메일 등 신청 정보를 접수 및 안내 목적으로 수집하는 것에 동의합니다. *</span>
+        </label>
+
+        <button type="submit" class="submit-btn" id="submitBtn">신청서 제출하기</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">FAQ</p>
+      <h2>자주 묻는 질문</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">1주차만 듣고 2~4주차는 나중에 신청할 수 있나요?<span class="ind">+</span></button>
+        <div class="faq-a"><p>네, 가능합니다. 1주차는 무료로 먼저 참여하신 뒤, 이어서 들을지 편하게 결정하실 수 있도록 별도 안내를 드립니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">기업이나 학교 단체 특강으로도 진행되나요?<span class="ind">+</span></button>
+        <div class="faq-a"><p>네. 신청 폼의 관심 분야에서 '기업/학교 단체 특강'을 선택해 문의해 주시면, 대상과 목적에 맞게 구성해 안내드립니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">컬러 코드 진단은 어떻게 진행되나요?<span class="ind">+</span></button>
+        <div class="faq-a"><p>1주차 수업 안에서 자가 진단 방식으로 진행되며, 별도 검사 도구 없이도 나의 컬러 코드를 확인할 수 있도록 안내합니다.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">면접 컨설팅은 어떤 방식으로 진행되나요?<span class="ind">+</span></button>
+        <div class="faq-a"><p>공기업 면접위원 경력을 바탕으로, 자기소개서 구성과 예상 질문, 답변 구조를 실제 평가 기준 관점에서 함께 점검합니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="admin">
+  <div class="wrap">
+    <button class="admin-toggle" id="adminToggle">신청자 접수 현황 보기 (운영자용)</button>
+    <div class="admin-panel" id="adminPanel">
+      <div class="admin-bar">
+        <span class="count" id="adminCount">0건 접수됨</span>
+        <div class="admin-actions">
+          <button class="admin-btn" id="exportCsv">CSV로 내려받기</button>
+          <button class="admin-btn" id="clearAll">전체 삭제</button>
+        </div>
+      </div>
+      <div id="adminTableWrap"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>COLOR LEADERSHIP LAB</span>
+    <span>이 페이지는 문의 접수용으로 제작되었습니다.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     설정: 실제 운영 시 이 이메일 주소를 본인 이메일로 바꿔주세요.
+     신청서 제출 시 이 주소로 보내는 이메일 창이 함께 열립니다.
+  ========================================================= */
+  var CONTACT_EMAIL = "your-email@example.com";
+  var STORAGE_KEY = "colorLeadershipApplications";
+
+  /* ---------- 16컬러 스펙트럼 렌더링 ---------- */
+  var spectrumRow = document.getElementById("spectrumRow");
+  var instructorMark = document.getElementById("instructorMark");
+  var colors = [];
+  for (var i = 0; i < 16; i++) {
+    var hue = Math.round(i * 22.5);
+    var light = (i % 2 === 0) ? 54 : 62;
+    colors.push("hsl(" + hue + ", 62%, " + light + "%)");
+  }
+  colors.forEach(function(c){
+    if (spectrumRow) {
+      var el = document.createElement("div");
+      el.className = "swatch";
+      el.style.background = c;
+      spectrumRow.appendChild(el);
+    }
+  });
+  var markOrder = [3,9,1,14,6,11,0,13,5,8,15,2,10,7,4,12];
+  markOrder.forEach(function(idx){
+    if (instructorMark) {
+      var el = document.createElement("div");
+      el.style.background = colors[idx];
+      instructorMark.appendChild(el);
+    }
+  });
+
+  /* ---------- FAQ 아코디언 ---------- */
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    var q = item.querySelector(".faq-q");
+    q.addEventListener("click", function(){
+      var wasOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(function(i){ i.classList.remove("open"); });
+      if (!wasOpen) item.classList.add("open");
+    });
+  });
+
+  /* ---------- 로컬 저장소 유틸 ---------- */
+  function getApplications(){
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) { return []; }
+  }
+  function saveApplications(list){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (e) {}
+  }
+
+  /* ---------- 신청 폼 처리 ---------- */
+  var form = document.getElementById("applyForm");
+  var msgEl = document.getElementById("formMsg");
+  var submitBtn = document.getElementById("submitBtn");
+
+  function showMsg(text, type){
+    msgEl.textContent = text;
+    msgEl.className = "form-msg " + (type || "");
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    var name = document.getElementById("f-name").value.trim();
+    var phone = document.getElementById("f-phone").value.trim();
+    var email = document.getElementById("f-email").value.trim();
+    var org = document.getElementById("f-org").value.trim();
+    var track = document.getElementById("f-track").value;
+    var message = document.getElementById("f-msg").value.trim();
+    var agree = document.getElementById("f-agree").checked;
+
+    if (!name || !phone || !email || !track) {
+      showMsg("이름, 연락처, 이메일, 관심 분야는 필수 입력 항목입니다.", "err");
+      return;
+    }
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      showMsg("이메일 형식을 다시 확인해 주세요.", "err");
+      return;
+    }
+    if (!agree) {
+      showMsg("신청 정보 수집에 동의해 주셔야 접수가 가능합니다.", "err");
+      return;
+    }
+
+    var entry = {
+      id: Date.now(),
+      name: name, phone: phone, email: email, org: org,
+      track: track, message: message,
+      submittedAt: new Date().toLocaleString("ko-KR")
+    };
+
+    var list = getApplications();
+    list.unshift(entry);
+    saveApplications(list);
+    renderAdminTable();
+
+    /* 이메일로도 전달되도록 mailto 창 오픈 (운영자 수신용) */
+    var subject = encodeURIComponent("[컬러 리더십 랩] 신청서 - " + name);
+    var bodyLines = [
+      "이름: " + name,
+      "연락처: " + phone,
+      "이메일: " + email,
+      "소속: " + (org || "-"),
+      "관심 분야: " + track,
+      "남기신 말씀: " + (message || "-"),
+      "제출 시각: " + entry.submittedAt
+    ];
+    var body = encodeURIComponent(bodyLines.join("\n"));
+    var mailtoLink = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
+
+    submitBtn.disabled = true;
+    showMsg("신청이 접수되었습니다. 잠시 후 열리는 메일 창에서 전송을 눌러 완료해 주세요.", "ok");
+
+    setTimeout(function(){
+      window.location.href = mailtoLink;
+    }, 300);
+
+    form.reset();
+    setTimeout(function(){ submitBtn.disabled = false; }, 1500);
+  });
+
+  /* ---------- 관리자 패널 ---------- */
+  var adminToggle = document.getElementById("adminToggle");
+  var adminPanel = document.getElementById("adminPanel");
+  var adminCount = document.getElementById("adminCount");
+  var adminTableWrap = document.getElementById("adminTableWrap");
+
+  adminToggle.addEventListener("click", function(){
+    adminPanel.classList.toggle("show");
+    if (adminPanel.classList.contains("show")) renderAdminTable();
+  });
+
+  function renderAdminTable(){
+    var list = getApplications();
+    adminCount.textContent = list.length + "건 접수됨";
+
+    if (list.length === 0) {
+      adminTableWrap.innerHTML = '<p class="admin-empty">아직 접수된 신청이 없습니다. (이 브라우저 기준 임시 저장 데이터입니다)</p>';
+      return;
+    }
+
+    var rows = list.map(function(a){
+      return "<tr>" +
+        "<td>" + escapeHtml(a.submittedAt) + "</td>" +
+        "<td>" + escapeHtml(a.name) + "</td>" +
+        "<td>" + escapeHtml(a.phone) + "</td>" +
+        "<td>" + escapeHtml(a.email) + "</td>" +
+        "<td>" + escapeHtml(a.org || "-") + "</td>" +
+        "<td>" + escapeHtml(a.track) + "</td>" +
+        "<td>" + escapeHtml(a.message || "-") + "</td>" +
+        "</tr>";
+    }).join("");
+
+    adminTableWrap.innerHTML =
+      '<table class="admin-table"><thead><tr>' +
+      "<th>접수 시각</th><th>이름</th><th>연락처</th><th>이메일</th><th>소속</th><th>관심 분야</th><th>메시지</th>" +
+      "</tr></thead><tbody>" + rows + "</tbody></table>";
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, function(ch){
+      return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[ch];
+    });
+  }
+
+  document.getElementById("exportCsv").addEventListener("click", function(){
+    var list = getApplications();
+    if (list.length === 0) return;
+    var header = ["접수시각","이름","연락처","이메일","소속","관심분야","메시지"];
+    var rows = list.map(function(a){
+      return [a.submittedAt, a.name, a.phone, a.email, a.org || "", a.track, (a.message || "").replace(/\n/g," ")]
+        .map(function(v){ return '"' + String(v).replace(/"/g,'""') + '"'; }).join(",");
+    });
+    var csv = "\uFEFF" + header.join(",") + "\n" + rows.join("\n");
+    var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "신청자_목록.csv";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById("clearAll").addEventListener("click", function(){
+    if (!confirm("저장된 신청 데이터를 모두 삭제할까요?")) return;
+    saveApplications([]);
+    renderAdminTable();
+  });
+
+  renderAdminTable();
+})();
+</script>
+
+</body>
+</html>
